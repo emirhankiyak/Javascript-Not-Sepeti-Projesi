@@ -83,6 +83,10 @@ body{
 .gorev-tanim{
     /* flexi 1 yapmamızın sebebi mümkün olduğunca yayıl diğerleri içerikleri kadar yer tutması için */
     flex: 1;
+    border: 2px solid var(--accent-color);
+    border-top-right-radius: .3rem;
+    border-bottom-left-radius: .3rem;
+    padding: .5rem;
 }
 .gorev-btn{
     outline: none;
@@ -92,6 +96,7 @@ body{
     color: var(--accent-color);
     cursor: pointer;
     margin: .1rem;
+    margin-left: .2rem;
 }
 
 .gorev-btn-sil:hover{
