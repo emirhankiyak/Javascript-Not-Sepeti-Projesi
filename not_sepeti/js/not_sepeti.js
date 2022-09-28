@@ -1,8 +1,9 @@
 let noteAddButton = document.querySelector('.btn-gorev-ekle');
-let noteDeleteButton = document.querySelector('.gorev-btn .gorev-btn-sil');
+const gorevListesi = document.querySelector('.gorev-listesi');
+
 let noteCount = 0;
+gorevListesi.addEventListener('click', deleteOrMark);
 noteAddButton.addEventListener('click',addNote);
-noteDeleteButton.addEventListener('click',deleteNote);
 
 function addNote(e){
     let textInput = document.querySelector('.input-gorev').value;
@@ -38,13 +39,15 @@ function addNote(e){
     }else alert("Not boş olamaz");
 }
 
-function deleteNote(e){
+function deleteOrMark(e){
     const tiklanilanEleman = e.target;
     if(tiklanilanEleman.classList.contains('gorev-btn-tamamlandi')){
         tiklanilanEleman.parentElement.classList.toggle('gorev-tamamlandi');
-        console.log('butona tıklandı');
     }
     if(tiklanilanEleman.classList.contains('gorev-btn-sil')){
-        
+        tiklanilanEleman.parentElement.classList.toggle('kaybol');
+        tiklanilanEleman.parentElement.addEventListener('transitionend', ()=>{
+            tiklanilanEleman.parentElement.remove();
+        })
     }
 }
